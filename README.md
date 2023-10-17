@@ -41,41 +41,41 @@ The signal generator block generates the CLK, chip selection, and clock signal. 
 
 The state machine has 32 different states to generate the signal clocks.
 
-![State Machine](images/state_machine.jpg)
+![State Machine](images/state_machine.PNG)
 
 ### Serial to Parallel Converter Block
 
 The serial to parallel converter block takes the 12 data bits, stores them in a shift register, and sends the 8 most significant bits to the UART for serial communication.
 
-![Serial to Parallel Converter Block](images/serial_to_parallel_converter.jpg)
+![Serial to Parallel Converter Block](images/Serial to parallel Converter.PNG)
 
 ### ModelSim Simulation
 
-![ModelSim Simulation](images/modelsim_simulation.jpg)
+![ModelSim Simulation](images/modelsim_simulation.PNG)
 
 ## Prototype
 
 ### Block Diagram
 
-![Prototype Block Diagram](images/prototype_block_diagram.jpg)
+![Prototype Block Diagram](images/Schematic.png)
 
 ### Circuit Board
 
-![Circuit Board](images/circuit_board.jpg)
+![Circuit Board](images/BreadBoard.jpg)
 
 ### Pin Planner
 
-![Pin Planner](images/pin_planner.jpg)
+![Pin Planner](images/pin_planner.PNG)
 
 ### PuTTY Serial Output
 
 - Without Voltage Reference
 
-  ![PuTTY Output Without Voltage Reference](images/putty_output_without_voltage.jpg)
+  ![PuTTY Output Without Voltage Reference](images/Output_1.jpg)
 
 - With Voltage Reference (3.3V)
 
-  ![PuTTY Output With Voltage Reference](images/putty_output_with_voltage.jpg)
+  ![PuTTY Output With Voltage Reference](images/Output_2.png)
 
 ## Conclusion
 
