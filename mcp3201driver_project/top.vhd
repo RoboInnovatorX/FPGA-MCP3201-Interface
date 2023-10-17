@@ -1,0 +1,52 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+library uart;
+
+ENTITY top IS port(
+	clk, rst_n, sda, rxd:	in std_logic;
+	txd, scl_out, cs_n:		out std_logic
+);
+END top;
+
+ARCHITECTURE rtl OF top IS
+	signal err, valid, ready, scl : std_logic := '0';
+	signal dout : std_logic_vector(7 downto 0) := (others=>'0');
+BEGIN
+
+adc_ctrl: entity work.adc_controller(fsm)
+	port map(
+		clk => clk,
+		rst_n => rst_n,
+		cs_n => cs_n,
+		scl => scl
+	);
+
+shift_reg: entity work.serial_to_parallel_converter(behav)
+	port map(
+		clk => clk,
+		rst_n => rst_n,
+		sda => sda,
+		scl => scl,
+		dout => dout,
+		ready => ready,
+		valid => valid,
+		err => err
+	);
+	
+uart0: entity uart.uart(rtl)
+	port map(
+		clk_clk => clk,
+		ext_RXD => rxd,
+		ext_TXD => txd,
+		rst_n_reset_n => rst_n,
+		st_in_data => dout,
+		st_in_error => err,
+		st_in_valid => valid,
+		st_in_ready => ready,
+		st_out_ready => '1'
+	);
+
+scl_out <= scl;
+
+END rtl;
