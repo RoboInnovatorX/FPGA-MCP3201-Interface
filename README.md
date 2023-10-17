@@ -15,7 +15,7 @@ The goal of this project is to interact with the MCP3201 A/D converter, read the
 
 ### MCP3201 Timing Diagram
 
-![MCP3201 Timing Diagram](images/mcp3201_timing_diagram.jpg)
+![MCP3201 Timing Diagram](images/Timing_Diagram.PNG)
 
 ### Components
 
@@ -29,13 +29,13 @@ The goal of this project is to interact with the MCP3201 A/D converter, read the
 
 For simulation, the signal CLK is generated, the chip is selected, and data is transmitted to the MCP3201. The 8 most significant bits are extracted for further processing. Finally, the 8 bits are sent to the computer using serial communication.
 
-![Simulation Block Diagram](images/simulation_block_diagram.jpg)
+![Simulation Block Diagram](images/Top_block.PNG)
 
 ### Signal Generator Block
 
 The signal generator block generates the CLK, chip selection, and clock signal. It utilizes a state machine to generate a total of 15 clock cycles with two ignored bits and an initial null bit.
 
-![Signal Generator Block](images/signal_generator_block.jpg)
+![Signal Generator Block](images/ADC_controller.PNG)
 
 ### State Machine
 
